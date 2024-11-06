@@ -79,6 +79,7 @@
    users = {
      noel = import ./home.nix;
    };
+   backupFileExtension = "backup";
   };
 
   nixpkgs.config.allowUnfree = true;
