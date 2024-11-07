@@ -72,7 +72,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  
+
   programs.git = {
     enable = true;
     userName = "NoelHuibers";
@@ -125,7 +125,7 @@
       "tailwindCSS.includeLanguages.rs" = "html";
       "cmake.configureOnOpen" = true;
       "git.confirmSync" = false;
-      
+
       # Language-specific formatter settings
       "[typescript]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -154,6 +154,20 @@
           "source.organizeImports" = "explicit";
         };
         "editor.tabSize" = 4;
+      };
+      "[nix]" = {
+        "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        "editor.tabSize" = 2;
+      };
+      "nix.serverPath" = "nixd";
+      "nix.enableLanguageServer" = true;
+      "nixpkgs.expr" = "import <nixpkgs> { }";
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = [ "nixfmt" ];
+          };
+        };
       };
     };
   };

@@ -6,33 +6,39 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";   
-};
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
-	system = "x86_64-linux";
-	pkgs = import nixpkgs {
-	  inherit system;
-	  config = {
-	    allowUnfree = true;
-	  };
-	};
-    in {
-    nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem { 
-        specialArgs = { inherit inputs system; };
-        modules = [
-           ./hosts/default/configuration.nix
-	];
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
       };
-      workstation = nixpkgs.lib.nixosSystem {
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/workstation/configuration.nix
-	];
+    in
+    {
+      nixosConfigurations = {
+        default = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs system;
+          };
+          modules = [
+            ./hosts/default/configuration.nix
+          ];
+        };
+        workstation = nixpkgs.lib.nixosSystem {
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/workstation/configuration.nix
+          ];
+        };
       };
     };
-  }; 
 }
