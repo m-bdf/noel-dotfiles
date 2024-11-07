@@ -90,6 +90,9 @@
       libclang
       cmake
       gnumake
+      glibc
+      gcc
+      libcxx
     ];
   };
 
@@ -110,12 +113,12 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    pkgs.nixd
+    nixd
     nixfmt-rfc-style
     plasma-browser-integration
     konsole
     elisa
-    pkgs.home-manager
+    home-manager
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
