@@ -46,29 +46,22 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # Configure keymap in X11
   services.xserver.xkb.layout = "de";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
+  services.libinput.touchpad.naturalScrolling = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.noel = {
@@ -79,13 +72,14 @@
       "audio"
       "disk"
       "networkmanager"
-    ]; # Enable ‘sudo’ for the user.
+    ];
     packages = with pkgs; [
       firefox
       neovim
       vscode
       git
       python3
+      # NS-3
       binutils
       libclang
       cmake
@@ -93,6 +87,9 @@
       glibc
       gcc
       libcxx
+      # 5G-Lena
+      sqlite
+      eigen
     ];
   };
 
@@ -105,6 +102,9 @@
     };
     backupFileExtension = "backup";
   };
+
+  # NS-3
+  environment.variables.NS3_BINDINGS_INSTALL_DIR = "/home/noel/.local/lib/python3.12/site-packages";
 
   nixpkgs.config.allowUnfree = true;
 
