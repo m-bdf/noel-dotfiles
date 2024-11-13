@@ -11,7 +11,7 @@
   imports = [
     (import ./../../modules/home-manager/vscode.nix { inherit pkgs; })
     (import ./../../modules/home-manager/git.nix)
-    (import ./../../modules/home-manager/firefox.nix { inherit inputs; })
+    (import ./../../modules/home-manager/firefox.nix { inherit inputs pkgs; })
   ];
 
   home.stateVersion = "24.05";

@@ -94,7 +94,7 @@
     users = {
       noel = import ./home.nix;
     };
-    backupFileExtension = "backup";
+    backupFileExtension = "newBackup";
   };
 
   hardware.bluetooth.enable = true;
