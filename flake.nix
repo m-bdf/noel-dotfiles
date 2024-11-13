@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "Noels NixOS Flake Config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -30,19 +30,30 @@
           allowUnfree = true;
         };
       };
+
+      devShell = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          sqlite
+          eigen
+        ];
+      };
+
     in
     {
       nixosConfigurations = {
         default = nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
-            inherit inputs system;
+            inherit inputs;
           };
           modules = [
             ./hosts/default/configuration.nix
           ];
         };
+
         workstation = nixpkgs.lib.nixosSystem {
-          extraSpecialArgs = {
+          inherit system;
+          specialArgs = {
             inherit inputs;
           };
           modules = [
@@ -53,12 +64,14 @@
 
       homeConfigurations = {
         "noel@nixos" = home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs;
+          inherit pkgs;
           extraSpecialArgs = {
             inherit inputs;
           };
           modules = [ ./hosts/default/home.nix ];
         };
       };
+
+      devShells.${system}.default = devShell;
     };
 }

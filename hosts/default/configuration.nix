@@ -81,9 +81,6 @@
       glibc
       gcc
       libcxx
-      # 5G-Lena
-      sqlite
-      eigen
     ];
   };
 
