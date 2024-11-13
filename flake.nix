@@ -32,10 +32,16 @@
       };
 
       devShell = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          sqlite
-          eigen
+        name = "dev-environment";
+
+        packages = with pkgs; [
+          sqlite.dev
+          sqlite-interactive
         ];
+
+        shellHook = ''
+          echo "Entered development shell"
+        '';
       };
 
     in
