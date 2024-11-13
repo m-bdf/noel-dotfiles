@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.username = "noel";
@@ -7,6 +11,7 @@
   imports = [
     (import ./../../modules/home-manager/vscode.nix { inherit pkgs; })
     (import ./../../modules/home-manager/git.nix)
+    (import ./../../modules/home-manager/firefox.nix { inherit inputs; })
   ];
 
   home.stateVersion = "24.05";

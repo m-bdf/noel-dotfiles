@@ -1,10 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
-  config,
-  lib,
   inputs,
   pkgs,
   ...
@@ -102,6 +96,9 @@
     };
     backupFileExtension = "backup";
   };
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # NS-3
   environment.variables.NS3_BINDINGS_INSTALL_DIR = "/home/noel/.local/lib/python3.12/site-packages";
