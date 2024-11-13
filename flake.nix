@@ -11,7 +11,12 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -38,6 +43,16 @@
           modules = [
             ./hosts/workstation/configuration.nix
           ];
+        };
+      };
+
+      homeConfigurations = {
+        "noel@nixos" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./hosts/default/home.nix ];
         };
       };
     };
