@@ -35,12 +35,15 @@
         name = "dev-environment";
 
         packages = with pkgs; [
-          sqlite.dev
-          sqlite-interactive
+          cmake
+          sqlite
+          eigen
+          python3
+          python3.pkgs.pip
         ];
 
         shellHook = ''
-          echo "Entered development shell"
+          export NS3_BINDINGS_INSTALL_DIR="$HOME/.local/lib/python3.12/site-packages"
         '';
       };
 
