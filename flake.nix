@@ -41,10 +41,6 @@
           python3
           python3.pkgs.pip
         ];
-
-        shellHook = ''
-          export NS3_BINDINGS_INSTALL_DIR="$HOME/.local/lib/python3.12/site-packages"
-        '';
       };
 
     in
