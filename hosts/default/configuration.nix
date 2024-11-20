@@ -72,15 +72,6 @@
       neovim
       vscode
       git
-      python3
-      # NS-3
-      binutils
-      libclang
-      cmake
-      gnumake
-      glibc
-      gcc
-      libcxx
     ];
   };
 

@@ -40,6 +40,12 @@
           eigen
           python3
           python3.pkgs.pip
+          binutils
+          libclang
+          gnumake
+          glibc
+          gcc
+          libcxx
         ];
       };
 
