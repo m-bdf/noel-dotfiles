@@ -13,6 +13,11 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cppyy = {
+      url = "github:m-bdf/cppyy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -20,6 +25,7 @@
       self,
       nixpkgs,
       home-manager,
+      cppyy,
       ...
     }@inputs:
     let
@@ -39,13 +45,7 @@
           sqlite
           eigen
           python3
-          python3.pkgs.pip
-          binutils
-          libclang
-          gnumake
-          glibc
-          gcc
-          libcxx
+          cppyy.packages.${system}.cppyy
         ];
       };
 

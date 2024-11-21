@@ -72,6 +72,13 @@
       neovim
       vscode
       git
+
+      gcc
+      binutils
+      libclang
+      gnumake
+      glibc
+      libcxx
     ];
   };
 

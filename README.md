@@ -7,26 +7,29 @@ This repository contains my personal NixOS configurations managed using Nix flak
 To use these configurations, ensure you have Nix installed with flake support enabled. Then, follow the instructions below:
 
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/NoelHuibers/.dotfiles.git
-    cd .dotfiles
-    ```
+
+   ```sh
+   git clone https://github.com/NoelHuibers/.dotfiles.git
+   cd .dotfiles
+   ```
 
 2. Apply the NixOS configuration:
-    ```sh
-    sudo nixos-rebuild switch --flake .#default
-    ```
+
+   ```sh
+   sudo nixos-rebuild switch --flake .#default
+   ```
 
 3. Set up home-manager:
-    ```sh
-    home-manager switch --flake .#noel@nixos
-    ```
+   ```sh
+   home-manager switch --flake .#noel@nixos
+   ```
 
 ## Usage
 
 ### Development Shell
 
 To enter the development environment specified in the flake, run:
+
 ```sh
 nix develop
 ```
@@ -45,6 +48,7 @@ Managed using home-manager, configurations are defined for different hosts.
 ## Flake Details
 
 The `flake.nix` file defines the inputs, outputs, and configurations. Key components include:
+
 - **nixpkgs:** NixOS package collection.
 - **home-manager:** Tool for managing user configurations.
 - **firefox-addons:** Additional packages for Firefox.
