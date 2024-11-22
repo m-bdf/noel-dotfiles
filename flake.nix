@@ -37,6 +37,12 @@
         };
       };
 
+      pythonEnv = pkgs.python3.withPackages (
+        ps: with ps; [
+          pandas
+        ]
+      );
+
       devShell = pkgs.mkShell {
         name = "dev-environment";
 
@@ -44,7 +50,7 @@
           cmake
           sqlite
           eigen
-          python3
+          pythonEnv
           cppyy.packages.${system}.cppyy
         ];
       };
