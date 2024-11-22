@@ -1,0 +1,94 @@
+format = """
+[](#9A348E)\
+$directory\
+[](bg:#DA627D fg:#9A348E)\
+$git_branch\
+$git_status\
+[](fg:#DA627D bg:#FCA17D)\
+$c\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$rust\
+$scala\
+$deno\
+[](fg:#FCA17D bg:#06969A)\
+$docker_context\
+[ ](fg:#06969A)\ 
+"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+[directory]
+style = "bg:#9A348E"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[c]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol $context ]($style) $path'
+
+[git_branch]
+symbol = " "
+style = "bg:#DA627D"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#DA627D"
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'
+
+[deno]
+symbol = "🦕 "
+style = "bg:#FCA17D"
+format = '[ $symbol ($version) ]($style)'

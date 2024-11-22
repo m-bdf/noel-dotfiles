@@ -11,6 +11,7 @@
       rust-lang.rust-analyzer
       ms-python.black-formatter
       github.copilot
+      tamasfe.even-better-toml
     ];
     userSettings = {
       "editor.inlineSuggest.enabled" = true;
@@ -23,6 +24,8 @@
       };
       "workbench.colorTheme" = "Monokai";
       "workbench.iconTheme" = "eq-material-theme-icons-palenight";
+      "editor.fontFamily" = "\"JetBrainsMono NF\"";
+      "editor.fontLigatures" = true;
       "git.autofetch" = true;
       "editor.minimap.enabled" = false;
       "terminal.integrated.fontFamily" = "\"JetBrainsMono NF\"";
