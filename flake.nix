@@ -53,6 +53,12 @@
           pythonEnv
           cppyy.packages.${system}.cppyy
         ];
+
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+          pkgs.sqlite
+          pkgs.eigen
+          pkgs.stdenv.cc.cc.lib
+        ];
       };
 
     in
