@@ -16,7 +16,7 @@ To use these configurations, ensure you have Nix installed with flake support en
 2. Apply the NixOS configuration:
 
    ```sh
-   sudo nixos-rebuild switch --flake .#default
+   sudo nixos-rebuild switch --flake ~/.dotfiles#default
    ```
 
 3. Set up home-manager:
