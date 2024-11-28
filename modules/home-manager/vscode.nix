@@ -6,6 +6,7 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
+      ms-python.python
       esbenp.prettier-vscode
       astro-build.astro-vscode
       rust-lang.rust-analyzer
