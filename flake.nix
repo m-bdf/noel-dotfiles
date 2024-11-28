@@ -40,6 +40,7 @@
       pythonEnv = pkgs.python3.withPackages (
         ps: with ps; [
           pandas
+          matplotlib
         ]
       );
 
@@ -52,6 +53,7 @@
           eigen
           pythonEnv
           cppyy.packages.${system}.cppyy
+          bashInteractive
         ];
 
         LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
@@ -59,8 +61,10 @@
           pkgs.eigen
           pkgs.stdenv.cc.cc.lib
         ];
-      };
 
+        PYTHONPATH = "/ns-3-dev/build/bindings/python";
+        PATH = "/ns-3-dev/build/lib";
+      };
     in
     {
       nixosConfigurations = {
