@@ -41,6 +41,9 @@
         ps: with ps; [
           pandas
           matplotlib
+          networkx
+          numpy
+          tqdm
         ]
       );
 
