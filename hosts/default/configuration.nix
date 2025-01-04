@@ -108,9 +108,9 @@
     nixd
     nixfmt-rfc-style
     plasma-browser-integration
-    konsole
     elisa
     home-manager
+    ghostty
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

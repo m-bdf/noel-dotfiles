@@ -19,7 +19,7 @@
 
   home.packages = with pkgs; [
     starship
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
   home.file = {
