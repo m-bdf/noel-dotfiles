@@ -112,7 +112,7 @@
     }))
     dunst
     libnotify
-    kitty
+    ghostty
     rofi-wayland
   ];
 
