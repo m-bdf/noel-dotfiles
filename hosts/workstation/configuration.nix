@@ -107,11 +107,6 @@
     konsole
     elisa
     home-manager
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    }))
-    dunst
-    libnotify
     ghostty
     rofi-wayland
   ];
