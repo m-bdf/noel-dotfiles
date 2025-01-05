@@ -111,6 +111,7 @@
     elisa
     home-manager
     ghostty
+    konsole
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
