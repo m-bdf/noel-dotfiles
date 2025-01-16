@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -86,7 +82,7 @@
     extraSpecialArgs = {
       inherit inputs;
     };
-    users.noel = import ./home.nix;
+    users.noel = ./home.nix;
     backupFileExtension = "backup";
   };
 

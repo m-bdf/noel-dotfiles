@@ -1,18 +1,14 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   home.username = "noel";
   home.homeDirectory = "/home/noel";
 
   imports = [
-    (import ./../../modules/home-manager/vscode.nix { inherit pkgs; })
-    (import ./../../modules/home-manager/git.nix)
-    (import ./../../modules/home-manager/firefox.nix { inherit inputs pkgs; })
-    (import ./../../modules/home-manager/bash.nix)
+    ../../modules/home-manager/vscode.nix
+    ../../modules/home-manager/git.nix
+    ../../modules/home-manager/firefox.nix
+    ../../modules/home-manager/bash.nix
   ];
 
   home.stateVersion = "24.05";
@@ -23,7 +19,7 @@
   ];
 
   home.file = {
-    ".config/starship.toml".source = ./../../modules/home-manager/starship.toml;
+    ".config/starship.toml".source = ../../modules/home-manager/starship.toml;
   };
 
   # Home Manager can also manage your environment variables through

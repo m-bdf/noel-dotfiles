@@ -22,14 +22,15 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       cppyy,
       ...
     }@inputs:
+
     let
       system = "x86_64-linux";
+
       pkgs = import nixpkgs {
         inherit system;
         config = {
@@ -98,7 +99,9 @@
           extraSpecialArgs = {
             inherit inputs;
           };
-          modules = [ ./hosts/default/home.nix ];
+          modules = [
+            ./hosts/default/home.nix
+          ];
         };
       };
 
