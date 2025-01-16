@@ -72,7 +72,7 @@
     {
       nixosConfigurations = {
         default = nixpkgs.lib.nixosSystem {
-          inherit system;
+          inherit pkgs;
           specialArgs = {
             inherit inputs;
           };
@@ -82,7 +82,7 @@
         };
 
         workstation = nixpkgs.lib.nixosSystem {
-          inherit system;
+          inherit pkgs;
           specialArgs = {
             inherit inputs;
           };

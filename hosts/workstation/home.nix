@@ -44,6 +44,5 @@
     MOZ_ENABLE_WAYLAND = "1";
   };
 
-  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }

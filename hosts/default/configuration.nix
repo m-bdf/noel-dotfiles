@@ -83,12 +83,12 @@
   };
 
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs;
     };
-    users = {
-      noel = import ./home.nix;
-    };
+    users.noel = import ./home.nix;
     backupFileExtension = "backup";
   };
 
@@ -97,8 +97,6 @@
 
   # NS-3
   environment.variables.NS3_BINDINGS_INSTALL_DIR = "/home/noel/.local/lib/python3.12/site-packages";
-
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
